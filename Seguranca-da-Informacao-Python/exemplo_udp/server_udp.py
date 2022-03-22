@@ -4,19 +4,27 @@ import socket
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-host = "localhost"
-port = 5432
 
-s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-logger.info("\nSocket criando com sucesso")
+def main():
+    """
+    Criando servidor para se comunicar com um client udp
+    """
+    host = "localhost"
+    port = 5432
 
-s.bind((host, port))
-message = "\nServidor: Olá"
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    logger.info("\nSocket criando com sucesso")
 
-while 1:
-    dados, end = s.recvfrom(4096)
+    s.bind((host, port))
+    message = "\nServidor: Olá"
 
-    if dados:
-        logger.info("\nServidor enviando mensagem")
+    while 1:
+        dados, end = s.recvfrom(4096)
 
-        s.sendto((dados + message.encode()), end)
+        if dados:
+            logger.info("\nServidor enviando mensagem")
+            s.sendto((dados + message.encode()), end)
+
+
+if __name__ == "__main__":
+    main()
