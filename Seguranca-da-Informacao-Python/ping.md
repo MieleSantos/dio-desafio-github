@@ -29,3 +29,19 @@
     Execute o servidor e depois o client
     - [Servidor](exemplo_udp/server_udp.py)
     - [Client](exemplo_udp/client_udp.py)
+
+## Biblioteca Random
+
+- É usada para gerar senhas randomizando letras e números e a cada execução do programa, novas senhas são geradas
+
+- Essa biblioteca contempla os princípios da [Autenticação](ping.md) e da [Confidencialidade](ping.md)
+
+## Hash
+
+- É como se um identificador único gerado através de um algoritmo que vai analisar
+byte a byte de determinado dado para gerar de forma única, um determinado código que só aquele arquivo terá. Se neste mesmo arquivo um único bit for alterado o hash gerado será diferente.
+- O Hash contempla o princípio da [Integridade](ping.md)
+
+## ipaddress
+
+- Esta biblioteca tem a capaciade de criar, manipular endereços IP do tipo IPv4, Ipv6 e até redes inteiras
